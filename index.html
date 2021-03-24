@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rollem Dices</title>
+
+    <!-- Import Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/rollDice.js"></script>
+
+    <!-- Import Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/rollem.css">
+
+    <!-- Da Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+    
+<!-- tabuleiro -->
+    <div id="page">
+        <div class="pg-ctn">
+            <div id="pg-ctn-result"> Resultado
+                <div id="result-info"></div>
+            </div>
+            
+            <div id="pg-ctn-table"></div>
+            
+            <div class="pg-ctn-dices">
+                
+                <div class="pg-ctn-dice" onclick="addDice(this.childNodes[3].innerHTML);">
+                    <img src="img/d4_text.png" width="75px" alt="" class="dice-img">
+                    <div class="sideNum">4</div>
+                    d4
+                </div>
+                <div class="pg-ctn-dice" onclick="addDice(this.childNodes[3].innerHTML);">
+                    <img src="img/d6_text.png" width="75px" alt="" class="dice-img">
+                    <div class="sideNum">6</div>
+                    d6
+                </div>
+                <div class="pg-ctn-dice" onclick="addDice(this.childNodes[3].innerHTML);">
+                    <img src="img/d8_text.png" width="75px" alt="" class="dice-img">
+                    <div class="sideNum">8</div>
+                    d8
+                </div>
+                <div class="pg-ctn-dice" onclick="addDice(this.childNodes[3].innerHTML);">
+                    <img src="img/d10_text.png" width="75px" alt="" class="dice-img">
+                    <div class="sideNum">10</div>
+                    d10
+                </div>
+                <div class="pg-ctn-dice" onclick="addDice(this.childNodes[3].innerHTML);">
+                    <img src="img/d12_text.png" width="75px" alt="" class="dice-img">
+                    <div class="sideNum">12</div>
+                    d12
+                </div>
+                <div class="pg-ctn-dice" onclick="addDice(this.childNodes[3].innerHTML);">
+                    <img src="img/d20_text.png" width="75px" alt="" class="dice-img">
+                    <div class="sideNum">20</div>
+                    d20
+                </div>
+                <div class="pg-ctn-dice" onclick="addDice(this.childNodes[3].innerHTML);">
+                    <img src="img/d100_text.png" width="75px" alt="" class="dice-img">
+                    <div class="sideNum">100</div>
+                    d100
+                </div>
+            </div>
+            
+            <div class="buttons">
+                <button class="btn-roll" onclick="roll(); snd.play()">ROLAR</button>
+                <button class="btn-clear" onclick="numDices = 0;$('.table-dice').remove();$('#result-info').html('');">LIMPAR</button>
+            </div>
+
+        </div>
+
+        <div class="pg-ctn-historic">
+            <div class="historic-title">Histórico</div>
+            <div id="historic-rolls-ctn"></div>
+        </div>
+    </div>
+    
+    <!-- modal -->
+    <div class="modal-ctn">
+        <img src="img/title-pg.png" width="150px" style="margin-top: 50px;">
+        <div class="modal-title">SELECIONE O TEMA</div>
+        <div class="card-ctn">
+            <div class="modal-card" onclick="cardClick(this.childNodes[3].firstChild);">
+                <img class="card-img-top" style="width: 100%;" src="img/bg-ded.png" alt="Imagem de capa do card">
+                <div class="card-body"><h5 class="modal-card-title">Medieval</h5>
+                    <p class="modal-card-info">Um clássico, aventure-se em um mundo de fantasias, com raças como elfos, anões e orcs.</p>
+                    <p class="modal-card-info">O sistema mais famoso é o D&D( Dungeons & Dragons).</p>
+                </div>
+            </div>
+            <div class="modal-card" onclick="cardClick(this.childNodes[3].firstChild);">
+                <img class="card-img-top" style="width: 100%;" src="img/bg-steam.jpg" alt="Imagem de capa do card">
+                <div class="card-body"><h5 class="modal-card-title">Steam Punk</h5>
+                    <p class="modal-card-info">Em um mundo onde a tecnologia a vapor alcança o ápice do desenvolvimento.</p>
+                    <p class="modal-card-info">Fate ou GURPS são exemplos de aventuras Steam Punk.</p>
+                </div>
+            </div>
+            <div class="modal-card" onclick="cardClick(this.childNodes[3].firstChild);">
+                <img class="card-img-top" style="width: 100%;" src="img/bg-cyber.jpg" alt="Imagem de capa do card">
+                <div class="card-body"><h5 class="modal-card-title">Cyber Punk</h5>
+                    <p class="modal-card-info">Um mundo tomado pelas grandes corporações, evoluções computacionais, desigualdade social e implantes robóticos.</p>
+                    <p class="modal-card-info">Um dos mais conhecidos é o universo de Cyberpunk 2020 (1990).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
